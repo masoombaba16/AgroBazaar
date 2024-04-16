@@ -1,0 +1,101 @@
+.logo1 {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    width: 40px;
+    height: auto;
+    cursor: pointer;
+    border-radius: 20px;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.cls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh; 
+    overflow: hidden;
+    z-index: -1;
+    background-size: cover;
+    animation: fadein 3s ease-in forwards;
+}
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+header {
+    background-color: #C7EFCF;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    height: 30px;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+main {
+    padding: 20px;
+}
+.container {
+    display: flex;
+    justify-content: space-around; /* Adjust as needed */
+}
+
+.box {
+    margin: 10px 5px; /* Adjust margin to reduce space between boxes */
+    text-align: center;
+    padding: 20px; /* Add padding for space inside the box */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Add box shadow */
+}
+.box img {
+    display: block;
+    margin: 0 auto 10px;
+}
+
+.signup-btn {
+    padding: 10px 20px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.signup-btn:hover {
+    background-color: #555;
+}
+
+.box:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: #C7EFCF;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 30px;
+}
+h2{
+    color: #333;
+    margin-top: -5px;
+}
+h4{
+    color: antiquewhite;
+}
+a{
+    color: aquamarine;
+}

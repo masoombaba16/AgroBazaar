@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New User</title>
+    <link rel="stylesheet" href="./fsignup.css"> <!-- Use the same CSS file as before -->
+</head>
+<body>
+    <div class="bg-image"></div>
+    <form action="/sign_up" method="POST" class="signup-form" onsubmit="return validateForm()">
+        <h2 class="signup-heading">Register as New User..</h2>
+        <input type="text" name="name" placeholder="Name" required class="signup-input"><br>
+        <select id="state" name="state" required class="signup-select">
+            <option value="" selected disabled>Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Telangana">Telangana</option>
+        </select><br>
+        <select id="district" name="district" class="signup-select">
+            <option value="" selected disabled>Select District</option>
+            <!-- Options for districts -->
+        </select><br>
+        <select id="mandal" name="mandal" required class="signup-select">
+            <option value="" selected disabled>Select Mandal</option>
+            <!-- Options for mandals -->
+        </select><br>
+        <select id="village" name="village" class="signup-select">
+            <option value="" selected disabled>Select Village</option>
+            <!-- Options for villages -->
+        </select><br>
+        <select id="gender" name="gender" required class="signup-select">
+            <option value="" selected disabled>Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Prefer Not to Say</option>
+        </select><br>
+        <input type="date" name="dob" placeholder="Date of Birth" required class="signup-input"><br>
+        <input type="text" name="aadhar" placeholder="Aadhar Number (12 digits)" required class="signup-input"><br>
+        <input type="tel" name="phone" placeholder="Phone Number (10 digits)" required pattern="[0-9]{10}" class="signup-input"  id="phone-input"><br>
+        <input type="text" name="bank_number" placeholder="Bank Number" required class="signup-input"><br>
+        <input type="text" name="ifsc_code" placeholder="IFSC Code" required class="signup-input"><br>
+        <input type="text" name="address" placeholder="Address" required class="signup-input"><br>
+        <input type="text" name="consumer_id" placeholder="username" required class="signup-input"><br>
+        <input type="password" name="password" placeholder="Password" required class="signup-input"><br>
+        <input type="password" name="confirmPassword" placeholder="Confirm Password" required class="signup-input"><br>
+        <div class="signup-btn-container">
+            <input type="submit" value="Signup" class="signup-btn">
+            <input type="reset" value="Reset" class="res-btn">
+            <a href="../login_signup.html"><input type="back" value="Back" class="back-btn"></a>
+        </div>
+    </form>
+
+
+    <script>
+        function validateForm() {
+            const password = document.getElementsByName("password")[0].value;
+            const confirmPassword = document.getElementsByName("confirmPassword")[0].value;
+    
+            if (password !== confirmPassword) {
+                alert("Passwords didn't not match..!");
+                return false;
+            }
+    
+            const aadhar = document.getElementsByName("aadhar")[0].value;
+            const phone = document.getElementsByName("phone")[0].value;
+    
+            if (aadhar.length !== 12) {
+                alert("Invalid Adhaar Number..!");
+                return false;
+            }
+    
+            if (phone.length !== 10) {
+                alert("Invalid Mobile Number..!");
+                return false;
+            }
+    const dob = new Date(document.getElementsByName("dob")[0].value);
+    const today = new Date();
+    const age = today.getFullYear() - dob.getFullYear();
+
+    if (age < 18) {
+        alert("You must be at least 18 years old to register..!");
+        return false;
+    }
+            return true;
+        }
+    </script>
+    
+    <script src="./fsignup.js"></script> <!-- Keep the same script reference -->
+</body>
+</html>

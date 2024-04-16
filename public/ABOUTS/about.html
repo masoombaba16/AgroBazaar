@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        overflow-x: hidden; /* Prevent horizontal scrolling */
+        position: relative; /* Position relative for the scroll down arrow */
+    }
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #79be70;
+        color: white;
+        text-align: center;
+        padding-bottom: 10px;
+        z-index: 1000; /* Ensure header is above other content */
+    }
+    footer {
+        background-color: #79be70;
+        color: white;
+        text-align: center;
+        padding: 10px;
+        width: 100%;
+    }
+    .mas {
+        margin-top: 120px; /* Adjust margin to account for fixed header */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 20px;
+    }
+    .team {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        flex-wrap: wrap;
+        padding-top: 20px;
+    }
+    .team-member {
+        text-align: center;
+        margin: 10px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 20px, rgba(0, 0, 0, 0.1) 0px 6px 6px;
+        padding: 20px;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        transition: transform 0.3s ease;
+    }
+    .team-member:hover {
+        transform: scale(1.05);
+    }
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 15px;
+        transition: transform 0.3s ease;
+    }
+    .team-member:hover img {
+        transform: scale(1.1);
+    }
+    /* Styles for video container */
+    .video-container {
+        position: relative;
+        width: 100%;
+        height: 540px; /* Set specific height */
+        margin-top: 152px; /* Add padding after header */
+        overflow: hidden;
+    }
+    .video-container video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Cover the entire container */
+    }
+    .scroll-down-arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 1370px; /* Adjust left position as needed */
+        width: 50px;
+        height: 50px;
+        background-image: url('../Images_public/s.jpg');
+        width: 50px;
+        height: 50px;
+        border-radius: 50%; /* Add arrow down symbol */
+        background-size: cover;
+        cursor: pointer;
+        z-index: 1001; /* Ensure arrow is above other content */
+    }
+    .bl{
+        padding-left: 25px;
+        font-size: 30px;
+    }
+
+    .scroll-down-arrow:hover {
+        opacity: 0.7;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <h1 style="font-size: 2.5rem; font-weight: bold;"><i>Agro Bazaar</i></h1>
+        <h3 style="font-style: italic;">One Stop Solution For Farmers</h3>
+    </header>
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="../Images_public/bac.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <!-- Scroll down arrow -->
+        <div class="scroll-down-arrow" id="scrollButton"></div>
+    </div>
+    <div class="mas">
+        <pre>
+            <h2 class="bl">About Us</h2>
+    <span style="font-size: 16px;">Welcome to E-Market where we are revolutionizing agricultural trade to empower farmers and foster a sustainable agricultural economy.</span>
+
+            
+            <h2 class="bl">Our Mission</h2>
+    <span style="font-size: 16px;">Our mission is to create a digital platform that empowers farmers by providing them with direct access to buyers, eliminating intermediaries, and ensuring 
+                 
+    fair prices for their produce.We aim to revolutionize the agricultural trade system, making it more efficient, transparent, and profitable for farmers.</span>
+            
+             <h2 class="bl">Our Vision</h2>
+    <span style="font-size: 16px;">Our vision is to create a world where farmers are empowered to make informed decisions about their crops,receive fair prices for their produce, and contribute
+                
+    to a sustainable agricultural ecosystem.</span>
+            
+            <h2 class="bl">Our Features</h2>
+    <span style="font-size: 16px;"><b style="font-size: 17px;">Mandi Trades:</b> Our Mandi Trades feature connects farmers directly with buyers, ensuring fair prices and eliminating middlemen. <br>
+   <b style="font-size: 17px;">Government Affiliation:</b> We are affiliated with the government to ensure adherence to fair trade practices.
+                
+      Government-appointed officers assess crop quality and determine Minimum Selling Prices, providing a standardized pricing system.
+            </span>
+            <h2 class="bl">Our Tech Stack</h2>
+    <span style="font-size: 16px;">
+    1.	Frontend: HTML, CSS, JavaScript
+    2.	Backend: Python (Django Framework)
+    3.	Database: MongoDB
+    4.	Geolocation Services: GPS integration for location-based pricing
+    5.	Security: Login Credentials For Fair Login
+        </span>
+            <h2 class="bl">Our Team</h2>
+    <span style="font-size: 16px;">Our team is comprised of passionate individuals with expertise in agriculture, technology, and business. We are dedicated to creating a platform that supports farmers
+    
+    and fosters a sustainable agricultural economy.
+            
+
+            <i>Join Us in Empowering Farmers....!</i>
+            <br>
+    Join us in our mission to empower farmers and revolutionize agricultural trade. Together,we can create a more efficient, transparent, and sustainable 
+    
+    agricultural ecosystem.
+                    </span>
+            <h2 class="bl">Contact Us</h2>
+            Have questions or want to learn more? Contact us at <a href="https://mail.google.com/mail/u/1/#inbox">Team@emarket.com</a>.
+            
+            <h3 style="text-align: center;"><i>Together, Let's Empower Farmers and Transform Agriculture!</i></h3>
+            
+        </pre>
+        <!--
+    <div class="team">
+        <div class="team-member">
+            <img src="https://raw.githubusercontent.com/farmers2026/rosss/main/jp.jpg?raw=true" alt="Developer 1">
+            <div>
+                <p style="font-weight: bold;">P.Jaya Prakash</p>
+                <p>Frontend Developer</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://raw.githubusercontent.com/farmers2026/rosss/main/rosi.png?raw=true" alt="Developer 2">
+            <div>
+                <p style="font-weight: bold;">Rosi Reddy</p>
+                <p>Backend Developer</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://raw.githubusercontent.com/farmers2026/rosss/main/masoom.jpg?raw=true" alt="Developer 3">
+            <div>
+                <p style="font-weight: bold;">MD Masoom</p>
+                <p>Frontend & DataBase</p>
+            </div>
+        </div>
+        <div class="team-member">
+            <img src="https://raw.githubusercontent.com/farmers2026/rosss/main/sadhik.jpg?raw=true" alt="Developer 4">
+            <div>
+                <p style="font-weight: bold;">MD Sadhik</p>
+                <p>Idea & Design</p>
+            </div>
+        </div>
+    </div>-->
+    <footer>
+        <p>&copy; 2024 Project -  <i>AgroBazaar</i></p>
+    </footer>
+    <script>
+        // Function to scroll to the "About Us" heading
+        function scrollToAboutUs() {
+            document.querySelector('.bl').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Add event listener to the scroll down arrow
+        document.getElementById('scrollButton').addEventListener('click', scrollToAboutUs);
+    </script>
+
+</body>
+</html>

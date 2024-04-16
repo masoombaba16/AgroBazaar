@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sell Crop Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+       .ma{
+        margin-top: 18px;
+       } 
+        .mas{
+            margin-left: 400px;
+            width: 400px;
+            display: flex;
+            justify-content: space-around;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        nav li {
+            margin-right: 20px;
+            list-style: none;
+        }
+        
+        nav .home,
+        nav .login-signup,
+        nav .logout,nav .back {
+            padding: 10px 20px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+    
+        
+        nav .home:hover,
+        nav .login-signup:hover,
+        nav .logout:hover,nav .back:hover {
+            transform: translateY(-3px);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            color: #2c3e50;
+        }
+        
+        .container {
+            width: 80%;
+            margin-top: 20px;
+            margin-left:150px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        input[type="text"],
+        input[type="number"],
+        select,
+        textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        
+        button[type="submit"],
+        button[type="reset"],
+        button[type="button"] {
+            padding: 10px 20px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button[type="submit"]:hover,
+        button[type="reset"]:hover,
+        button[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        
+        .logo3 {
+            width: 75px;
+            height: auto;
+            cursor: pointer;
+            margin-left: 15px;
+            border-radius: 100px;
+        }
+        
+        header {
+            background: #40b062;
+            padding: 4px;
+            text-align: center;
+            color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+        }
+        .menu-logo {
+            margin-top: 79px;
+            text-align: center;
+            background-color: rgb(213, 201, 201);
+            width: 10%;
+            margin-left: 5px;
+            border-radius: 5px 15px;
+            padding: 15px;
+            font-size: 28px; /* Increase font size */
+            font-style: italic;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+            color: white; /* Change font color to white */
+        }
+        
+        .menu-options {
+            display: none;
+            position: absolute;
+            background-color:gray;
+            border-radius: 10px;
+            width: 250px;
+            margin-top: 15px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .menu-options ul {
+            padding-left: 0; /* Remove default padding */
+        }
+        
+        .menu-options ul li {
+            list-style: none; /* Remove default list styles */
+            padding: 10px 20px; /* Add padding to list items */
+            font-size: 20px;
+            border-bottom: 1px solid #ccc; /* Add border between list items */
+            transition: background-color 0.3s; /* Add transition for hover effect */
+        }
+        
+        .menu-options ul li:hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+        }
+        
+        .menu-logo:hover .menu-options {
+            display: block;
+            opacity: 1;
+        }
+                
+    </style>
+    <script src="./crop_submit.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../farmer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../farmer_dashboard.html">Home</a></li>
+                <li><a href="./cropsubmit.html">Sell Crop</a></li>
+                <li><a href="./statusapproval.html">Know Your Crop Approval Status</a></li>
+                <li><a href="./orders.html">Orders Received</a></li>
+                <li><a href="./knowofficer.html">Know Your Officer</a></li>
+                <li><a href="./chatbox.html">Chatbox</a></li>
+                <li><a href="./buyfertilizers.html">Buy Fertilizers</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h2>Sell Crop Form</h2>
+        <form action="/cropsubmit" method="post">
+            <label for="cropType">Type of Crop:</label>
+            <select id="cropType" name="cropname" required>
+                <option value="" selected disabled>Select Crop</option>
+                <option value="Paddy">Paddy</option>
+                <option value="Wheat">Wheat</option>
+                <option value="Other">Other</option>
+            </select>
+    
+            <div id="otherCropInput" style="display: none;">
+                <label for="otherCrop">Specify Crop:</label>
+                <input type="text" id="otherCrop" name="cropname">
+            </div>
+    
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" required>
+            
+            <label for="quality">Quality (50-95):</label>
+            <input type="number" id="quality" name="quality" min="50" max="95" required>
+    
+            <label for="state">State:</label>
+            <select id="state" required name="state">
+                <option value="" selected disabled>Select State</option>
+                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                <option value="Telangana">Telangana</option>
+            </select>
+    
+            <label for="district">District:</label>
+            <select id="district" required name="district">
+                <option value="" selected disabled>Select District</option>
+            </select>
+    
+            <label for="mandal">Mandal:</label>
+            <select id="mandal" required name="mandal">
+                <option value="" selected disabled>Select Mandal</option>
+            </select>
+    
+            <label for="village">Village:</label>
+            <select id="village" required name="village">
+                <option value="" selected disabled>Select Village</option>
+            </select>
+    
+            <label for="description">Description of Crop:</label>
+            <textarea id="description" name="description" rows="4" cols="50"></textarea>
+    
+            <button type="submit">Submit Crop Details</button>
+            <button type="reset">Reset</button>
+            <a href="../farmer_dashboard.html">Go Back</a>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Change</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        .ba{
+            padding: 10px;
+            margin-left: 110px;
+        }
+        form {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label, input, span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="password"], input[type="submit"], input[type="reset"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+        #password_strength {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        .weak {
+            color: red;
+        }
+        .medium {
+            color: orange;
+        }
+        .strong {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <h2>Password Change</h2>
+        <label for="new_password">New Password:</label>
+        <input type="password" id="new_password" name="new_password" onkeyup="checkPasswordStrength()">
+        <span id="password_strength"></span>
+        
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" onkeyup="checkPasswordMatch()">
+        <span id="password_match"></span>
+        
+        <input type="submit" value="Change Password">
+        <input type="reset" value="Reset">
+        <a href="../officer_dashboard.html" class="ba">Go Back</a>
+    </form>
+    <script>
+        function checkPasswordStrength() {
+            const password = document.getElementById('new_password').value;
+            const strength = document.getElementById('password_strength');
+            const containsSpecialChars = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+/.test(password);
+            
+            if (password.length === 0) {
+                strength.innerHTML = '';
+            } else if (password.length < 8 || !containsSpecialChars) {
+                strength.innerHTML = 'Password should be at least 8 characters long and contain special characters';
+                strength.className = 'weak';
+            } else {
+                strength.innerHTML = 'Strong';
+                strength.className = 'strong';
+            }
+        }
+        
+        
+        function checkPasswordMatch() {
+            const newPassword = document.getElementById('new_password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const match = document.getElementById('password_match');
+            if (newPassword === confirmPassword) {
+                match.innerHTML = 'Passwords match';
+                match.style.color = 'green';
+            } else {
+                match.innerHTML = 'Passwords do not match';
+                match.style.color = 'red';
+            }
+        }
+        
+        const form = document.querySelector('form');
+        form.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const newPassword = document.getElementById('new_password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            
+            if(newPassword === confirmPassword) {
+                alert('Password changed successfully!');
+                // You can add code here to submit the form data to a server
+            } else {
+                alert('Passwords do not match. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+    
+    nav li {
+        margin-right: 20px;
+        list-style: none;
+    }
+    h1{
+        text-align: center;
+    }
+    h4{
+        text-align: center;
+    }
+    
+    nav .home,
+    nav .login-signup,
+    nav .logout,nav .back {
+        padding: 10px 20px;
+        margin-right: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+    
+    
+    nav .home:hover,
+    nav .login-signup:hover,
+    nav .logout:hover,nav .back:hover {
+        transform: translateY(-3px);
+    }
+    
+    nav a {
+        text-decoration: none;
+        color: #ecf0f1;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    
+    nav a:hover {
+        color: #2c3e50;
+    }
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+    .logo3 {
+        width: 75px;
+        height: auto;
+        cursor: pointer;
+        margin-left: 15px;
+        border-radius: 100px;
+    }
+    header {
+        background: #40b062;
+        padding: 4px;
+        text-align: center;
+        color: #ecf0f1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        z-index: 9999;
+    }
+    .menu-logo {
+        margin-top: 79px;
+        text-align: center;
+        background-color: rgb(213, 201, 201);
+        width: 10%;
+        margin-left: 5px;
+        border-radius: 5px 15px;
+        padding: 15px;
+        font-size: 28px; /* Increase font size */
+        font-style: italic;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+        color: white; /* Change font color to white */
+    }
+    
+    .menu-options {
+        display: none;
+        position: absolute;
+        background-color:gray;
+        border-radius: 10px;
+        width: 250px;
+        margin-top: 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+    
+    .menu-options ul {
+        padding-left: 0; /* Remove default padding */
+    }
+    
+    .menu-options ul li {
+        list-style: none; /* Remove default list styles */
+        padding: 10px 20px; /* Add padding to list items */
+        font-size: 20px;
+        border-bottom: 1px solid #ccc; /* Add border between list items */
+        transition: background-color 0.3s; /* Add transition for hover effect */
+    }
+    
+    .menu-options ul li:hover {
+        background-color: #f0f0f0; /* Change background color on hover */
+    }
+    
+    .menu-logo:hover .menu-options {
+        display: block;
+        opacity: 1;
+    }
+    .card {
+        text-align: center;
+        margin-top: 50px;
+        margin-left: 40%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 10px;
+        width: 300px;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Added shadow effect */
+    }
+</style>
+</head>
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../farmer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../customer_dashboard.html">Home</a></li>
+                <li><a href="./buy.html">Buy Now</a></li>
+                <li><a href="./cart.html">My Cart</a></li>
+                <li><a href="./orders.html">My Orders</a></li>
+                <li><a href="./delivery.html">Know About Delivery Partners</a></li>
+                <li><a href="./chatboxx.html">Open Chatbox</a></li>
+                <li><a href="./importance.html">Importance Of Farming</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1>Welcome To the ChatBox</h1>
+    <h2>Sorry ! But Iam Trying To Make ChatBox Also Available.  For This AgroBazaar Project</h2>
+    <h4>Where You Can Directly Chat With Farmer and can Ask for any Details Related To Crop..</h4>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Change</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-image: url('https://images.pexels.com/photos/2049422/pexels-photo-2049422.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
+        form {
+            width: 300px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            background-color: #fff;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label, input, span {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input[type="password"], input[type="submit"], input[type="reset"] {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input[type="submit"], input[type="reset"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover, input[type="reset"]:hover {
+            background-color: #45a049;
+        }
+        #password_strength {
+            margin-top: 5px;
+            font-size: 12px;
+        }
+        .weak {
+            color: red;
+        }
+        .medium {
+            color: orange;
+        }
+        .strong {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form action="/change/password" method="post">
+        <h2>Password Change</h2>
+        <input type="hidden" name="consumer_id" value="<%= consumer_id %>">
+        <label for="new_password">New Password:</label>
+        <input type="password" id="new_password" name="new_password" onkeyup="checkPasswordStrength()">
+        <span id="password_strength"></span>
+        
+        <label for="confirm_password">Confirm Password:</label>
+        <input type="password" id="confirm_password" name="confirm_password" onkeyup="checkPasswordMatch()">
+        <span id="password_match"></span>
+        
+        <input type="submit" value="Change Password">
+        <input type="reset" value="Reset">
+    </form>
+    <script>
+        
+    </script>
+</body>
+</html>

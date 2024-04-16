@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cart</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    #addressForm{
+        width: 40%;
+        margin: auto;
+    }
+    .sub{
+        margin-left: 280px;
+    }
+    nav ul {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 15px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    nav li {
+        margin-right: 20px;
+        list-style: none;
+    }
+
+    nav .home,
+    nav .login-signup,
+    nav .logout,
+    nav .back {
+        padding: 10px 20px;
+        margin-right: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        border-radius: 8px;
+        transition: transform 0.3s;
+    }
+
+    nav .home:hover,
+    nav .login-signup:hover,
+    nav .logout:hover,
+    nav .back:hover {
+        transform: translateY(-3px);
+    }
+
+    nav a {
+        text-decoration: none;
+        color: #ecf0f1;
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    nav a:hover {
+        color: #2c3e50;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .logo3 {
+        width: 75px;
+        height: auto;
+        cursor: pointer;
+        margin-left: 15px;
+        border-radius: 100px;
+    }
+
+    header {
+        background: #40b062;
+        padding: 4px;
+        text-align: center;
+        color: #ecf0f1;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 70px;
+        z-index: 9999;
+    }
+
+    .menu-logo {
+        margin-top: 79px;
+        text-align: center;
+        background-color: rgb(213, 201, 201);
+        width: 10%;
+        margin-left: 5px;
+        border-radius: 5px 15px;
+        padding: 15px;
+        font-size: 28px;
+        font-style: italic;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+        color: white;
+    }
+    #proceedToBuy{
+        background-color: #69c849;
+        margin-left: 685px;
+        border: none;
+        padding: 15px;
+        border-radius: 10px;
+        font-size: 20px;
+    }
+    .menu-options {
+        display: none;
+        position: absolute;
+        background-color: gray;
+        border-radius: 10px;
+        width: 250px;
+        margin-top: 15px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .menu-options ul {
+        padding-left: 0;
+    }
+
+    .menu-options ul li {
+        list-style: none;
+        padding: 10px 20px;
+        font-size: 20px;
+        border-bottom: 1px solid #ccc;
+        transition: background-color 0.3s;
+    }
+
+    .menu-options ul li:hover {
+        background-color: #f0f0f0;
+    }
+
+    h1 {
+        text-align: center;
+    }
+    .shp{
+        margin-left: 680px;
+        font-size: 22px;
+    }
+    .contain {
+        margin-top: 70px;
+        margin-left: 35%;
+    }
+
+    .menu-logo:hover .menu-options {
+        display: block;
+        opacity: 1;
+    }
+
+    .container {
+        margin-top: 20px;
+        margin-left: 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .product{
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .product-card {
+        margin: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+    }
+
+    .product-img {
+        width: auto;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .product-details {
+        margin-left: 40px;
+    }
+
+    .product-title {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    .product-info {
+        margin-top: 5px;
+    }
+
+    .btn {
+        margin-top: 10px;
+        margin-left: 55px;
+        display: inline-block;
+        padding: 8px 12px;
+        background-color: #007bff;
+        color: white;
+        text-align: center;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    #addressForm {
+        margin-top: 20px;
+        padding: 20px;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        display: none;
+    }
+
+    #addressForm h2 {
+        margin-bottom: 10px;
+    }
+
+    #addressForm label {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    #addressForm input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border-radius: 3px;
+        border: 1px solid #ccc;
+    }
+
+    #addressForm button {
+        padding: 8px 16px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+    }
+    #cart-items {
+        margin-top: 30px;
+        padding: 20px;
+        width: 300px;
+        margin-left: 600px;
+        background-color: #ad8181;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    #cart-total{
+        width:300px ;
+        margin-left: 600px;
+        font-size: 20px;
+        padding: 20px;
+    }
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 10px;
+    }
+    
+    .item-name {
+        flex: 1;
+    }
+    .emp{
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    .item-price {
+        flex: 0 0 80px; /* Fixed width for price */
+        text-align: right;
+    }
+    
+    .delete-item-btn {
+        background: none;
+        border: none;
+        color: #555;
+        font-size: 18px;
+        cursor: pointer;
+        margin-left: 10px;
+        margin-top: -5px; /* Adjust the margin-top value as needed */
+    }
+    .delete-item-btn:hover {
+        color: red;
+    }
+    
+    #addressForm button:hover {
+        background-color: #0056b3;
+    }
+
+    .btn:hover {
+        background-color: #0056b3;
+    }
+</style>
+</head>
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../customer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../customer_dashboard.html">Home</a></li>
+                <li><a href="./buy.html">Buy Now</a></li>
+                <li><a href="./cart.html">My Cart</a></li>
+                <li><a href="./orders.html">My Orders</a></li>
+                <li><a href="./delivery.html">Know About Delivery Partners</a></li>
+                <li><a href="./chatboxx.html">Open Chatbox</a></li>
+                <li><a href="./importance.html">Importance Of Farming</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <h1>Welcome to Cart..!</h1>
+    <div id="cart-items">
+        <!-- Your cart items will be displayed here -->
+        <div class="cart-item">
+            <span class="item-name">Product Name</span>
+            <span class="item-price">$10.00</span>
+            <button class="delete-item-btn">&#10006;</button>
+        </div>
+        <div class="cart-item">
+            <span class="item-name">Another Product</span>
+            <span class="item-price">$15.00</span>
+            <button class="delete-item-btn">&#10006;</button>
+        </div>
+    </div>
+    <div id="empty-cart-message" style="display: none;">
+        <p class="emp">Cart is Empty</p>
+        <a href="./buy.html" class="shp">Click here to shop</a>
+    </div>
+    <div id="cart-total">
+        Total: $25.00
+    </div>
+    <div id="addressForm" style="display: none;">
+        <h2>Enter Your Address</h2>
+        <form id="addressFormData">
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <label for="city">City:</label>
+            <input type="text" id="city" name="city" required><br><br>
+            <label for="zipcode">Zip Code:</label>
+            <input type="text" id="zipcode" name="zipcode" required><br><br>
+            <button type="submit" class="sub">Submit</button>
+        </form>
+    </div>
+    <button id="proceedToBuy">Proceed to Buy</button>
+
+    <script>
+    const proceedToBuyButton = document.getElementById('proceedToBuy');
+    const addressForm = document.getElementById('addressForm');
+    const cartItems = document.getElementById('cart-items');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+
+    // Add event listeners to delete buttons
+    cartItems.querySelectorAll('.delete-item-btn').forEach(deleteBtn => {
+        deleteBtn.addEventListener('click', (e) => {
+            const item = e.target.closest('.cart-item');
+            const itemName = item.querySelector('.item-name').textContent;
+
+            // Remove the item from the cart
+            item.remove();
+
+            // Update the total price
+            updateTotalPrice();
+
+            // Show empty cart message if cart is empty
+            if (cartItems.childElementCount === 0) {
+                emptyCartMessage.style.display = 'block';
+            }
+
+            // You can also update the cart details in the database here
+            console.log('Item deleted from cart:', itemName);
+        });
+    });
+
+    function updateTotalPrice() {
+        let total = 0;
+        cartItems.querySelectorAll('.cart-item').forEach(item => {
+            const price = parseFloat(item.querySelector('.item-price').textContent.replace('$', ''));
+            total += price;
+        });
+        document.getElementById('cart-total').textContent = `Total: $${total.toFixed(2)}`;
+    }
+
+    proceedToBuyButton.addEventListener('click', () => {
+        addressForm.style.display = 'block';
+        proceedToBuyButton.style.display = 'none'; // Hide the button
+    });
+
+    document.getElementById('addressFormData').addEventListener('submit', (e) => {
+        e.preventDefault(); // Prevent form submission
+
+        // Get the address details
+        const address = document.getElementById('address').value;
+        const city = document.getElementById('city').value;
+        const zipcode = document.getElementById('zipcode').value;
+
+        // Get the cart items
+        const items = [];
+        cartItems.querySelectorAll('.cart-item').forEach(item => {
+            const name = item.querySelector('.item-name').textContent;
+            const price = item.querySelector('.item-price').textContent;
+            items.push({ name, price });
+        });
+
+        // Submit the form data along with the cart items
+        console.log('Address submitted:', { address, city, zipcode, items });
+
+        // Clear the cart items and reset the cart-related elements
+        cartItems.innerHTML = '';
+        addressForm.innerHTML='';
+        emptyCartMessage.style.display = 'block'; // Show empty cart message
+        document.getElementById('cart-total').textContent = 'Total: $0.00';
+
+        // Reset the form and hide it
+        addressForm.reset();
+        addressForm.style.display = 'none';
+        proceedToBuyButton.style.display = 'block'; // Show the button again
+
+        // Reset cart details in the database (this is a placeholder for your actual database update code)
+        // Here, you can make an API call or use a database library to update the cart details in your database
+        // For example, if you have an API endpoint to delete the cart items, you can call it like this:
+        fetch('/api/deleteCartItems', {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ items })
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Cart items deleted from database.');
+                // Navigate to another webpage
+                window.location.href = '/path/to/another/page.html';
+            } else {
+                console.error('Failed to delete cart items from database.');
+            }
+        })
+        .catch(error => {
+            console.error('Error deleting cart items from database:', error);
+        });
+    });
+
+</script>
+
+</body>
+
+</html>

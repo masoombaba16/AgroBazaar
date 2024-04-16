@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body{
+            background-color: antiquewhite;
+        }
+        
+        .container{
+            display: flex;
+             box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+             width: 900px;
+             height: 550px;
+             margin: auto;
+             margin-top: 60px;
+             overflow: hidden;
+             border-radius: 20px;
+        }
+        .left{
+            flex: 1;
+            justify-content: center;
+            align-content: center;
+            background-color: aliceblue;
+        }
+        .right{
+            flex:1;
+            background-color:rgb(217, 81, 165);
+        }
+        h2{
+            text-align: center;
+            padding: 15px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-weight: bold;
+            font-size: 35px;
+        }
+        .logo{
+            display: flex;
+            justify-content:center;
+        
+        }
+        .img-1{
+            width: 50px;
+            height: 50px;
+            margin-right: 20px;
+        }
+        .img-2{
+            width: 50px;
+            height: 50px;
+        }
+        #username{
+            margin-top: 20px;
+            margin-left: 100px;
+            width: 250px;
+            height: 40px;
+            border: none;
+            background-color: rgb(216, 209, 209);
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        .role{
+            padding: 5px;
+            font-size: 15px;
+            display: block;
+            margin-top: 15px;
+            margin-left: 100px;
+            width: 150px;
+            border-radius: 15px;
+            color:black;
+        }
+        #password{
+            margin-top: 10px;
+            margin-left: 100px;
+            width: 250px;
+            height: 40px;
+            border: none;
+            background-color: rgb(216, 209, 209);
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+        h4{
+            padding: 30px;
+            text-align: center;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+            margin-left: 80px;
+            margin-right: 100px;
+            width: 300px;
+        }
+        
+        button {
+            flex: 1;
+            border: none;
+            background-color: rgb(193, 25, 92);
+            color: aliceblue;
+            text-align: center;
+            font-size: 20px;
+            border-radius: 20px;
+            height: 40px;
+        }
+        .ba{
+            display: inline-block;
+            margin-top: 40px;
+            margin-left: 195px;
+            font-size: 20px;
+        }
+        .maso {
+            flex: 1;
+            display: inline-block;
+            border: none;
+            background-color: rgb(193, 25, 92);
+            color: aliceblue;
+            text-align: center;
+            font-size: 13.5px;
+            border-radius: 20px;
+            height: 40px;
+            line-height: 40px; 
+            margin-left: 10px;
+        }
+        
+        .mas{
+            font-size: 25px;
+        } 
+        .farimg{
+            height: 570px;
+            width:auto;
+        }       
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h2>User - Login</h2>
+            <div class="logo">
+                <a href="https://www.facebook.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Facebook_Logo_%282019%29.png/480px-Facebook_Logo_%282019%29.png" class="img-1" alt="Facebook"></a>
+                <a href="https://twitter.com/"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Logo_of_Twitter.svg/512px-Logo_of_Twitter.svg.png" class="img-2" alt="Twitter"></a>
+            </div>
+            <div class="formm">
+                <form action="/login" method="POST">
+                    <input type="text" name="consumer_id" id="username" placeholder="Username" required>
+                    <input type="password" name="password" id="password" required placeholder="Password">
+                    <select name="role" id="role" required class="role">
+                        <option value="" selected disabled>Login as</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="consumer">Customer</option>
+                    </select>
+                    <div class="button-group">
+                        <button type="submit" value="Login"><i>Log in</i></button>
+                        <a href="#" id="forgotPasswordButton" class="maso"><i>Forgot Password.?</i></a>
+                    </div>
+                </form>
+                <a href="../login_signup.html" class="ba">Go Back</a>
+            </div>
+        </div>
+        <div class="right">
+            <img src="https://images.pexels.com/photos/1391249/pexels-photo-1391249.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Not Available" class="farimg">
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const forgotPasswordButton = document.getElementById("forgotPasswordButton");
+            forgotPasswordButton.addEventListener("click", function(event) {
+                event.preventDefault();
+                window.location.href = "/PASSWORDS/forgot_password.html"; 
+            });
+        });        
+    </script>
+</body>
+</html>

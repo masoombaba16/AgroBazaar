@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Application Status</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        nav li {
+            margin-right: 20px;
+            list-style: none;
+        }
+        
+        nav .home,
+        nav .login-signup,
+        nav .logout,nav .back {
+            padding: 10px 20px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        
+        nav .home:hover,
+        nav .login-signup:hover,
+        nav .logout:hover,nav .back:hover {
+            transform: translateY(-3px);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            color: #2c3e50;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .logo3 {
+            width: 75px;
+            height: auto;
+            cursor: pointer;
+            margin-left: 15px;
+            border-radius: 100px;
+        }
+        header {
+            background: #40b062;
+            padding: 4px;
+            text-align: center;
+            color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+        }
+        .menu-logo {
+            margin-top: 79px;
+            text-align: center;
+            background-color: rgb(213, 201, 201);
+            width: 10%;
+            margin-left: 5px;
+            border-radius: 5px 15px;
+            padding: 15px;
+            font-size: 28px; /* Increase font size */
+            font-style: italic;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+            color: white; /* Change font color to white */
+        }
+        
+        .menu-options {
+            display: none;
+            position: absolute;
+            background-color:gray;
+            border-radius: 10px;
+            width: 250px;
+            margin-top: 15px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .menu-options ul {
+            padding-left: 0; /* Remove default padding */
+        }
+        
+        .menu-options ul li {
+            list-style: none; /* Remove default list styles */
+            padding: 10px 20px; /* Add padding to list items */
+            font-size: 20px;
+            border-bottom: 1px solid #ccc; /* Add border between list items */
+            transition: background-color 0.3s; /* Add transition for hover effect */
+        }
+        
+        .menu-options ul li:hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+        }
+        
+        .menu-logo:hover .menu-options {
+            display: block;
+            opacity: 1;
+        }
+        table {
+            width: 80%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        .stathead{
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../farmer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../farmer_dashboard.html">Home</a></li>
+                <li><a href="./cropsubmit.html">Sell Crop</a></li>
+                <li><a href="./statusapproval.html">Know Your Crop Approval Status</a></li>
+                <li><a href="./orders.html">Orders Received</a></li>
+                <li><a href="./knowofficer.html">Know Your Officer</a></li>
+                <li><a href="./chatbox.html">Chatbox</a></li>
+                <li><a href="./buyfertilizers.html">Buy Fertilizers</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <h2 class="stathead" id="datePlaceholder">Application Status as of - </h2>
+    <table>
+        <tr>
+            <th>Crop Name</th>
+            <th>Submitted Date</th>
+            <th>Submitted Time</th>
+            <th>Status of Approval</th>
+            <th>Approval Time</th>
+            <th>Approved By(Officer)</th>
+        </tr>
+        <tr>
+            <td><%= crop.crop_name %></td>
+            <td><%= crop.submitted_date %></td>
+            <td><%= crop.submitted_time %></td>
+            <td><%= crop.approval_status %></td>
+            <td><%= crop.approval_time ? crop.approval_time : 'N/A' %></td>
+            <td><%= crop.approval_time ? crop.approval_time : 'N/A' %></td>
+        </tr>
+    </table>
+    <script>
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const today = new Date();
+        const formattedDate = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+        document.getElementById("datePlaceholder").textContent += formattedDate;
+      </script>
+</body>
+</html>

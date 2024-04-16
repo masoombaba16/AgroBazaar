@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rejected Applications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        nav li {
+            margin-right: 20px;
+            list-style: none;
+        }
+        
+        nav .home,
+        nav .login-signup,
+        nav .logout,nav .back {
+            padding: 10px 20px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        
+        nav .home:hover,
+        nav .login-signup:hover,
+        nav .logout:hover,nav .back:hover {
+            transform: translateY(-3px);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            color: #2c3e50;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .logo3 {
+            width: 75px;
+            height: auto;
+            cursor: pointer;
+            margin-left: 15px;
+            border-radius: 100px;
+        }
+        header {
+            background: #40b062;
+            padding: 4px;
+            text-align: center;
+            color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+        }
+        .menu-logo {
+            margin-top: 79px;
+            text-align: center;
+            background-color: rgb(213, 201, 201);
+            width: 10%;
+            margin-left: 5px;
+            border-radius: 5px 15px;
+            padding: 15px;
+            font-size: 28px; /* Increase font size */
+            font-style: italic;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+            color: white; /* Change font color to white */
+        }
+        
+        .menu-options {
+            display: none;
+            position: absolute;
+            background-color:gray;
+            border-radius: 10px;
+            width: 250px;
+            margin-top: 15px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .menu-options ul {
+            padding-left: 0; /* Remove default padding */
+        }
+        
+        .menu-options ul li {
+            list-style: none; /* Remove default list styles */
+            padding: 10px 20px; /* Add padding to list items */
+            font-size: 20px;
+            border-bottom: 1px solid #ccc; /* Add border between list items */
+            transition: background-color 0.3s; /* Add transition for hover effect */
+        }
+        
+        .menu-options ul li:hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+        }
+        
+        .menu-logo:hover .menu-options {
+            display: block;
+            opacity: 1;
+        }
+        table {
+            width: 90%;
+            border-collapse: collapse;
+            margin: auto;
+        }
+        .stathead{
+            text-align: center;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../officer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../officer_dashboard.html">Home</a></li>
+                <li><a href="./applications.html">Applications</a></li>
+                <li><a href="./approved.html">Approved Applications</a></li>
+                <li><a href="./pending.html">Pending For Approval Applications</a></li>
+                <li><a href="./rejected.html">Rejected Applications</a></li>
+                <li><a href="./farmer_details.html">Check Details of Farmer</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <h2 class="stathead" id="datePlaceholder">Rejected Applicartions as of - </h2>
+    <table id="cropsTable">
+        <tr>
+            <th>Crop Name</th>
+            <th>Quantity</th>
+            <th>Quality</th>
+            <th>Price</th>
+            <th>Submitted Date</th>
+            <th>Rejected Date</th>
+            <th>Farmer Name</th>
+            <th>Mandal</th>
+            <th>Remarks</th>
+        </tr>
+    </table>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('/rejected/crops')
+                .then(response => response.json())
+                .then(crops => {
+                    const table = document.getElementById('cropsTable');
+                    crops.forEach(crop => {
+                        const row = table.insertRow();
+                        row.insertCell().textContent = crop.cropname;
+                        row.insertCell().textContent = crop.quantity;
+                        row.insertCell().textContent = crop.quality;
+                        row.insertCell().textContent = crop.price;
+                        const dateObj = new Date(crop.tos);
+                        const formattedDate = `${dateObj.getDate()}-${dateObj.getMonth() + 1}-${dateObj.getFullYear()}`;
+                        const formattedTime = `${dateObj.getHours()}:${dateObj.getMinutes() < 10 ? '0' : ''}${dateObj.getMinutes()}`;
+                        row.insertCell().textContent = `${formattedDate}    ${formattedTime}`;
+                        const dateObj2 = new Date(crop.toa);
+                        const formattedDate2 = `${dateObj.getDate()}-${dateObj.getMonth() + 1}-${dateObj.getFullYear()}`;
+                        const formattedTime2 = `${dateObj.getHours()}:${dateObj.getMinutes() < 10 ? '0' : ''}${dateObj.getMinutes()}`;
+                        row.insertCell().textContent = `${formattedDate}    ${formattedTime}`;
+                        row.insertCell().textContent = crop.consumer_id;
+                        row.insertCell().textContent = crop.mandal;
+                        row.insertCell().textContent = crop.remarks;
+                    });
+                    });
+                });
+        const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+        const today = new Date();
+        const formattedDate = `${today.getDate()} ${months[today.getMonth()]} ${today.getFullYear()}`;
+        document.getElementById("datePlaceholder").textContent += formattedDate;
+      </script>
+</body>
+</html>

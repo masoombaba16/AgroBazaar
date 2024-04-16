@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check Farmer Details</title>
+    <!-- Add any necessary CSS styles here -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        nav ul {
+            display: flex;
+            justify-content: space-between;
+            margin-right: 15px;
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+        
+        nav li {
+            margin-right: 20px;
+            list-style: none;
+        }
+        
+        nav .home,
+        nav .login-signup,
+        nav .logout,nav .back {
+            padding: 10px 20px;
+            margin-right: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        
+        nav .home:hover,
+        nav .login-signup:hover,
+        nav .logout:hover,nav .back:hover {
+            transform: translateY(-3px);
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: #ecf0f1;
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        nav a:hover {
+            color: #2c3e50;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .logo3 {
+            width: 75px;
+            height: auto;
+            cursor: pointer;
+            margin-left: 15px;
+            border-radius: 100px;
+        }
+        header {
+            background: #40b062;
+            padding: 4px;
+            text-align: center;
+            color: #ecf0f1;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            z-index: 9999;
+        }
+        .menu-logo {
+            margin-top: 79px;
+            text-align: center;
+            background-color: rgb(213, 201, 201);
+            width: 10%;
+            margin-left: 5px;
+            border-radius: 5px 15px;
+            padding: 15px;
+            font-size: 28px; /* Increase font size */
+            font-style: italic;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+            color: white; /* Change font color to white */
+        }
+        
+        .menu-options {
+            display: none;
+            position: absolute;
+            background-color:gray;
+            border-radius: 10px;
+            width: 250px;
+            margin-top: 15px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .menu-options ul {
+            padding-left: 0; /* Remove default padding */
+        }
+        
+        .menu-options ul li {
+            list-style: none; /* Remove default list styles */
+            padding: 10px 20px; /* Add padding to list items */
+            font-size: 20px;
+            border-bottom: 1px solid #ccc; /* Add border between list items */
+            transition: background-color 0.3s; /* Add transition for hover effect */
+        }
+        
+        .menu-options ul li:hover {
+            background-color: #f0f0f0; /* Change background color on hover */
+        }
+        
+        .menu-logo:hover .menu-options {
+            display: block;
+            opacity: 1;
+        }
+        .card {
+            text-align: center;
+            margin-top: 25px;
+            margin-left: 37%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 10px;
+            width: 400px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2); /* Added shadow effect */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="/Images_public/logo3.jpg" alt="Logo" class="logo3">
+        <h2 class="id">AGRO-BAZAR</h2>
+        <nav>
+            <ul>
+                <li class="back"><a href="../officer_dashboard.html">Go Back</a></li>
+                <li class="logout"><a href="/index.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="menu-logo" id="menuLogo">
+        <a href="#">MENU</a>
+        <div class="menu-options" id="menuOptions">
+            <ul>
+                <li><a href="../officer_dashboard.html">Home</a></li>
+                <li><a href="./applications.html">Applications</a></li>
+                <li><a href="./approved.html">Approved Applications</a></li>
+                <li><a href="./pending.html">Pending For Approval Applications</a></li>
+                <li><a href="./rejected.html">Rejected Applications</a></li>
+                <li><a href="./farmer_details.html">Check Details of Farmer</a></li>
+                <li><a href="./forgot_change.html">Change Password</a></li>
+                <li><a href="/index.html">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <h2>Farmer Details</h2>
+    <div style="text-align: center;">
+        <label for="farmerId">Enter Farmer ID:</label>
+        <input type="text" id="farmerId" name="farmerId">
+        <button onclick="searchFarmer()">Search</button>
+    </div>
+    <!-- Card to display farmer information -->
+    <div class="card" id="farmerDetails" style="display: none;">
+        <h2>Officer Name :</h2>
+        <p id="farmerName"></p>
+        
+        <h3>Mobile Number :</h3>
+        <p id="mobileNumber"></p>
+        
+        <h3>Mandal Name :</h3>
+        <p id="mandalName"></p>
+
+        <h3>Total Crops Submitted :</h3>
+        <p id="totalCrops"></p>
+        <h3>Approved Crops :</h3>
+        <p id="approvedCrops"></p>
+        <h3>Rejected Crops :</h3>
+        <p id="rejectedCrops"></p>
+    </div>
+
+    <script>
+        function searchFarmer() {
+            // Get the input value
+            var farmerId = document.getElementById("farmerId").value;
+            // Here, you can use AJAX to fetch the farmer details based on the farmerId
+            // For demonstration, let's assume we have the following details for the farmer
+            var farmerDetails = {
+                farmerName: "John Doe",
+                mobileNumber: "1234567890",
+                mandalName: "Some Mandal",
+                totalCrops: 5,
+                approvedCrops: 3,
+                rejectedCrops: 2
+            };
+            // Display the farmer details in the card
+            document.getElementById("farmerName").textContent = farmerDetails.farmerName;
+            document.getElementById("mobileNumber").textContent = farmerDetails.mobileNumber;
+            document.getElementById("mandalName").textContent = farmerDetails.mandalName;
+            document.getElementById("totalCrops").textContent = farmerDetails.totalCrops;
+            document.getElementById("approvedCrops").textContent = farmerDetails.approvedCrops;
+            document.getElementById("rejectedCrops").textContent = farmerDetails.rejectedCrops;
+            // Show the card
+            document.getElementById("farmerDetails").style.display = "block";
+        }
+    </script>
